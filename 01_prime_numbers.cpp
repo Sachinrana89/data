@@ -2,23 +2,28 @@
 #include<cmath>
 using namespace std;
 
+bool isPrimenumber(int num)
+{
+    for(int i =1; i<sqrt(num); ++i)
+    {
+        if(num%2==0)
+        return false;
+    }
+    return true;
+}
+
 int main()
 {
-    int n;
-    cin>>n;
+    int n1,n2;
+    cin>>n1>>n2;
 
-    bool flag=0;
-
-    for(int i = 2; i<=sqrt(n); ++i)
+    for(int i = n1; i<=n2; i++)
     {
-        if(n%i==0)
+        if(isPrimenumber(i))
         {
-            cout<<"non prime";
-            flag=1;
-            break;
-        }
+            cout<<i;
+            cout<<endl;
+        }   
     }
-    if(flag==0)
-    cout<<"prime"<<endl;
     return 0;
 }
